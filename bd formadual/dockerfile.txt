@@ -1,0 +1,24 @@
+# Dockerfile para API ou Aplicação do Sistema Escolar
+# Este arquivo define o build de uma aplicação vinculada ao banco PostgreSQL
+
+# Exemplo com Node.js, pode ser adaptado conforme tecnologia usada
+
+FROM node:18
+
+# Criar diretório da aplicação
+WORKDIR /app
+
+# Copiar arquivos de dependências
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm install
+
+# Copiar o restante dos arquivos da aplicação
+COPY . .
+
+# Expor porta padrão da aplicação
+EXPOSE 3000
+
+# Comando para iniciar o servidor
+CMD ["npm", "start"]
